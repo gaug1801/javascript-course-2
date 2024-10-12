@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>11l</title>
+</head>
+<body>
+  <script>
+    /*
+      11l/11m - Here you learned that to check if the array is null,
+      do it OUTSIDE of the for loop. Since array.length = 0, 
+      the for loop was not even executing.
+
+      console.log(minMax(homogenousArray));  was not working because 
+      there was an error in the code, it was because you called the
+      function as console.log(minMax [homogenousArray] ); lmao
+    */
+    const myArray = [-2, 3, -5, 7, 10];
+    console.log(minMax(myArray));
+
+    const homogenousArray = [3, 3];
+    console.log(minMax(homogenousArray)); 
+
+    console.log(minMax([]));
+
+    function minMax(array) {
+      let max = Number.MIN_SAFE_INTEGER;
+      let min = Number.MAX_SAFE_INTEGER;
+
+      if (array.length <= 0) { 
+        return JSON.stringify({min: null, max: null});
+      }
+
+      for (let i = 0; i < array.length; i++) {
+        if (array[i] < min) {
+          min = array[i];
+        } else if (array[i] > max) {
+          max = array[i];
+        } 
+      }
+      return JSON.stringify({min: min, max: max});
+    }
+
+  </script>
+</body>
+</html>

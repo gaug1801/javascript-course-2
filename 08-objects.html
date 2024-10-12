@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Objects</title>
+  </head>
+  <body>
+    <script>
+      // const product = {
+      //   name: 'socks',
+      //   price: 1090
+      // };
+
+      // console.log(typeof product);
+      // console.log(product);
+      // console.log(product.name);
+      // console.log(product.price);
+
+      // product.name = 'cotton socks';
+      // console.log(product);
+
+      // product.newProperty = true;
+      // console.log(product);
+      // delete product.newProperty;
+      // console.log(product);
+
+      // const product2 = {
+      //   name: 'shirt',
+      //   ['delivery-time']: '1 day', // brackets are optional
+      //   rating: {
+      //     stars: 4.5,
+      //     count: 87
+      //   },
+      //   fun: function function1() {
+      //     console.log('function inside object');
+      //   }
+      // };
+
+      // console.log(product2);
+      // console.log(product2.name);
+      // console.log(product2['name']); //Bracket Notation lets us use properties that don't work with dot notation (see below)
+
+      // // console.log(product2.delivery-time); //Doesnt work
+      // console.log(product2['delivery-time']);
+
+      // console.log(product2.rating.count);
+      // product2.fun(); //Function inside an object = Method
+
+      // /* JSON - translate an object to a string that is more universal to other computers than JavaScript. */
+      // console.log(JSON.stringify(product2)); // NOTE: how this doesn't stringify the fun() function
+      // const jsonString = JSON.stringify(product2);
+      // console.log(JSON.parse(jsonString));
+
+      // /*localStorage - data does not get deleted when you refresh the page.*/
+      
+
+
+      localStorage.setItem('message', 'hello');
+      localStorage.setItem('message', 'hello2');
+      console.log(typeof localStorage.getItem('message'));
+
+      console.log(localStorage.getItem('message'));
+
+      // console.log('hello'.length);
+      // console.log('hello'.toUpperCase());
+
+      /*  localStorage Recap 
+        To use localStorage right, you need to call the setItem() function.
+        When you call it, the first parameter is the name of the item being created.
+        The second parameter is the value to be stored in the item.
+        However, the value passed must be a string IF IT IS AN OBJECT.
+        To do so, you have to use JSON.stringify(). Ex: localStorage.setItem('score', JSON.stringify(score));
+
+        To get that item, you have to use the getItem() function, with one parameter which is the name of the item that was set.
+        The value returned is a string, so in this case where we are passing it straight into a variable, you must use JSON.parse() to turn that string back into an object.
+      */
+
+
+      // /*  REFERENCES  */
+      // const object1 = {
+      //   message: 'hello' //This message is linked to object1 by reference, somewhere else
+      // };
+
+      // const object2 = object1; //This does not make a one to one copy; just a reference - which is much faster. Both objects currently have the same exact reference to .message 
+
+      // object1.message = 'good job'; //Even though we used const to define this object, we can still reach inside and change its values.
+
+      // console.log(object1);
+      // console.log(object2);
+
+      // //We cannot compare objects directly.
+      // const object3 = {
+      //   message: 'good job'
+      // };
+
+      // console.log(object3 === object1); //  prints false. THIS COMPARES THE REFERENCES, not their values. To properly compare, you have to compare the two objects directly.
+      // console.log(object2 === object1); //  prints true. Because they have the same reference
+
+      // const object4 = {
+      //   message: 'good job',
+      //   price: 799
+      // };
+      
+
+      // //Destructuring: extracts the value from the object and saves it to this variable. YOU CAN REMOVE MORE THAN ONE PROPERTY AT A TIME!!!
+      // // const message = object4.message;
+      // const{ message, price } = object4; 
+      // console.log(message);
+      // console.log(price);
+
+      // //Shorthand Property
+      // const object5 = {
+      //   //message: message, // takes what's in the message variable and subsititutes into object5.message
+      //   message, //This shortcut creates the same object as the line above.
+      //   // method: function function1() {
+      //   //   console.log('method');
+      //   // }
+      //   // This does the same as the function declaration above.
+      //   method() {
+      //     console.log('method');
+      //   }
+      // };
+
+      // console.log(object5);
+      // object5.method();
+    </script>
+  </body>
+</html>

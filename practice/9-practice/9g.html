@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>9g</title>
+  </head>
+  <body>
+    <p>Amazon Shipping Calculator</p>
+    <input class="js-cost-input" placeholder="Cost of order" type="text" onkeydown="handleCostKeydown(event);">
+    <button onclick="calculateTotal();">Calculate</button>
+    <p class="js-total-cost"></p>
+
+    <script>
+       function handleCostKeydown(event) {
+        if (event.key === 'Enter') {
+          calculateTotal();
+        }
+       }
+
+       function calculateTotal() {
+        const inputElem = document.querySelector('.js-cost-input');
+
+        let cost = Number(inputElem.value) * 100; //Since the input tag has no innerHTML value, we just use .value for the value.
+
+        if (cost < 4000) {
+          cost += 1000;
+        }
+
+        document.querySelector('.js-total-cost').innerHTML = `$${cost/100}`;
+
+       }
+
+       function subscribe() {
+        const buttonElem = document.querySelector('.js-subscribe-button');
+
+        if (buttonElem.innerText === 'Subscribed') {
+          buttonElem.innerHTML = 'Subscribe';
+        } else {
+          buttonElem.innerHTML = 'Subscribed';
+        }
+       }
+    </script>
+  </body>
+</html>

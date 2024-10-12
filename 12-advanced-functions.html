@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Advanced Functions</title>
+  </head>
+  <body>
+    <button onclick="" class="js-button">Click</button>
+    <script>
+      /*
+      const buttonElement = document.querySelector('.js-button');
+      //the way to find event names. The word after 'on' is the event
+      //addEventListener allows us to have multiple listeners to one event
+      //we can also remove listeners using removeEventListenre
+      const eventListener = () => {
+        console.log('click');
+      };
+      buttonElement.addEventListener('click', eventListener);
+
+      //removes the eventListener
+      buttonElement.removeEventListener('click', eventListener);
+
+      buttonElement.addEventListener('click', () => {
+        console.log('click 2');
+      });
+
+      */
+      /*
+        Notes
+        - I guess you can create a variable that is a function?
+          FUNCTIONS ARE VALUES.
+        - you can store a function within and call it by using 
+        the variable name
+        - The function you create within does not need a name. AKA an anonymous function
+        - Hoisting is when you write a function but you can call
+          it before the declaration of the function.
+        - anonymous functions DO NOT allow for hoisting.
+        - You can pass a function into another function
+        - Callbacks are the function being passed.
+        -setTimeout() allows us to run a function in the future.
+        - This is an intro to asynchronous code
+      */
+      
+      
+      /*function greeting() {
+        console.log('hello');
+      }
+
+      greeting();
+
+      const num = 2;
+      const function1 = function greeting() {
+        console.log('hello');
+      };
+
+      console.log(function1);
+      console.log(typeof function1);
+      function1(); //runs the function within
+
+      const object1 = {
+        num: 2,
+        fun: function () {
+          console.log('hello3');
+        }
+      };
+      object1.fun();
+
+      function display(param) {
+        console.log(param);
+      }
+      display(2);
+
+    
+      function run(param) {
+        param();
+      }
+
+      run(function() {
+        console.log('hello4')
+      }); */
+      /*
+      //setTimeout(): first param - function to run; second is time in milliseconds
+      setTimeout(function() {
+        console.log('timeout');
+      }, 3000);
+
+      console.log('next line');
+
+      //setInterval - will continue to run the function at the set interval
+      setInterval(function() {
+        console.log('interval');
+      }, 3000);
+
+      console.log('next line 2');
+      */
+
+      
+      // //Preferred way to loop through an array
+      // //return is used in the same way that continue is used in for loops
+      // //There is not an easy way to use break. If you need to use break, use a for loop.s
+      // [
+      //   'make dinner',
+      //   'wash dishes',
+      //   'watch youtube'
+      // ].forEach(function (value, index){ //value is the object, index is the index of the object
+      //   if(value === 'wash dishes') {
+      //     return;
+      //   }
+      //   console.log(value);
+      //   console.log(index);
+      // });
+
+      // const regularFunction = function(param, param2) {
+      //   console.log('Hello');
+      //   return 5;
+      // };
+
+      // //Arrow function works the same as a regular function
+      // //The  difference is that instead of using the word 
+      // //'function', we only use the arrow
+      // const arrowFunction = (param, param2) => {
+      //   console.log('Hello');
+      //   return 5;
+      // };
+
+      // arrowFunction();
+
+      // //when there is only one param, we can get rid of the round brackets
+      // const oneParam = param => {
+      //   console.log(param + 1);
+      // };
+
+      // oneParam(1);
+
+      // //When the function is on one line, curly brackets AND 'return' are optional.
+      // const oneLine = () => 2 + 3;
+
+      // console.log(oneLine());
+
+      // //Now, let's implement arrow functions into .forEach() on the array from the start of this lesson:
+
+      // /*
+      //   All we did was remove 'function' and place a
+      //   '=>' right after the parameters. This 
+      //   makes the code look cleaner.
+      // */
+      // [
+      //   'make dinner',
+      //   'wash dishes',
+      //   'watch youtube'
+      // ].forEach( (value, index) => { 
+      //   if(value === 'wash dishes') {
+      //     return;
+      //   }
+      //   console.log(value);
+      //   console.log(index);
+      // });
+
+      // /*
+      //   Using arrow functions inside an Object:
+      //   When creating function within an object,
+      //   it is better to use the existing shortcut
+      //   to write functions, AKA shorthand method syntax.
+      //   So, don't use the arrow function syntax in objects.
+      // */
+      // const object2 = {
+      //   method: () => {
+
+      //   },
+      //   method() {
+
+      //   }
+      // };
+
+      /*
+        .filter() works like .forEach(), it iterates through all values
+        1. creates a new array
+        2. if returns true, put value in array
+        3. if returns false, NOT put value in array
+      */
+      console.log([1, -3, 5].filter( (value, index) => {
+        // if (value < 0) {
+        //   return false;
+        // }
+        // return true;
+        return value >= 0;
+      }));
+
+      /*
+        .map() - also iterates through the loop, passing to the callback function
+        the value and index
+        1. Creates new array
+        2. whatever we return is added to the array
+        - Both versions of the code below do the same exact thing
+          - we don't use index, so it can be removed
+          - when there is only one param we can remove round brackets (brackest are optional)
+          - if we only have one line of code, we can put everything on one line
+          - now curly brackets and return are optional.
+          - an arrow will automatically return what's right of the arrow
+      */
+      console.log([1, 1, 3].map((value, index)=> {
+        return value * 2;
+      }));
+
+      console.log([1, 1, 3].map(value => value * 2));
+
+      /*
+        Closure 
+          - if a function has access to a value, it will always have access to that value
+          - value gets packaged together (enclosed) with the function
+          - document.querySelectorAll('.js-delete-todo-button')
+              .forEach((deleteButton, index) => { // deleteButton = delete button element
+                deleteButton.addEventListener('click', () => {
+                  todoList.splice(index, 1);
+                  renderTodoList();
+                })
+              });
+            -In the code above, index is an example of an enclosed value.
+      */
+    </script>
+  </body>
+</html>

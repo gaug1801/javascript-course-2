@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>9d-9f</title>
+</head>
+<body>
+  <input onkeydown=" handleNameKeydown();" placeholder="Name">
+  <button onclick="displayName();">Submit</button>
+  <p></p>
+
+  <script>
+    function handleNameKeydown() {
+      if (event.key === 'Enter'){
+      document.querySelector('p').innerHTML = `Your name is: ${document.querySelector('input').value}`;
+      }
+    }
+
+    function displayName() {
+      document.querySelector('p').innerHTML = `Your name is: ${document.querySelector('input').value}`;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Booleans</title>
+  </head>
+  <body>
+    <script>
+      /*
+      console.log(5 == '5.00'); //The double equals converts both values into the same type before comparning.
+
+      console.log(5 === '5.00');
+      //basically make sure to always add an extra equals sign when doing comparisons
+
+      //comparison operators have a low order in pemdas than any calculations
+      //operators are below comparisons
+
+      if (true) {
+        console.log('hello');
+      } else {
+        console.log('else');
+      }
+
+      //the best practice is to use const by default
+      const age = 15;
+
+      if (age >= 16) {
+        console.log('You can drive');
+      } else if(age >= 14){
+        console.log('almost there');
+      } else { 
+        console.log('You cannot drive');
+      }*/
+
+      /*
+      console.log(true && false);
+      console.log(0.2 >= 0 && 0.2 <= 1/3);
+
+      console.log(true || false); // OR
+      console.log(!true); // NOT
+      */
+
+      /*
+      //Truthy and Falsy values
+      //0 is a falsy value because it behaves like False.
+      //Falsy = false, 0, '', NaN, undefined, null
+      if(0) {
+        console.log('truthy');
+      }
+
+      //since the value of cartQuantity is not 0, the if statement below is read as true.
+      const cartQuantity = 5;
+
+      if (cartQuantity) {
+        console.log('cart has products')
+      }
+
+      console.log(!0); 
+
+      console.log('text' / 5); //NaN
+
+      let variable1;
+      console.log(variable1); //undefined
+      */
+
+      const result = true ? 'truthy' : 'falsy'
+      //condition ? result1 else result2
+      console.log(result);
+
+      //using the AND operator in this fashion makes it a GUARD operator.
+      false && console.log('hello');
+
+      let message = 5 && 'hello';
+      console.log(message);
+
+      message = false && 'hello';
+      console.log(message);
+
+      let currency = undefined || 'USD';
+      console.log(currency);
+
+      currency = 'EUR' || 'USD';
+      console.log(currency);
+
+    </script>
+  </body>
+</html>

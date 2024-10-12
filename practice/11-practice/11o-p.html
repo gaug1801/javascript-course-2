@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>11o-p</title>
+</head>
+<body>
+  <script>
+    //11o & 11p - simple search
+    // const testArray = ['hello', 'world', 'search'];
+
+    // for (let i = 0; i < testArray.length; i++) {
+    //   if (testArray[i] === 'search') {
+    //     console.log(i);
+    //     break;
+    //   } else {
+    //     console.log(-1);
+    //   }
+    // }
+
+    /*
+      11q - Practice to remember that break is not used in
+      functions. You use return instead. The fail statement
+      has to go outside of the if block but inside the
+      for loop.
+    */
+    const wordArray = ['green', 'red', 'blue', 'red'];
+    findIndex(wordArray, 'blue');
+
+    function findIndex(array, word) {
+      for (let i = 0; i < array.length; i++) {
+        if (array[i] === word) {
+          console.log(i);
+          return;
+        }  
+      }
+      console.log(-1);
+    }
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>11l</title>
+</head>
+<body>
+  <script>
+
+    //11i
+    const myArray = [1, 2, 3];
+
+    console.log(addNum(myArray, 3));
+
+    function addNum(array, num) {
+      const newArray = [];
+      for (let i = 0; i < array.length; i++) {
+        newArray[i] = array[i] + num;
+      }
+      return newArray;
+    }
+
+    //11j
+    const testArray = [1, 2, 3];
+    const secArray = [4, 5, 6];
+    console.log(addArrays(testArray, secArray));
+
+    function addArrays(array1, array2) {
+      const newArray = [];
+
+      for (let i = 0; i < array1.length; i++) {
+        newArray[i] = array1[i] + array2[i]
+      }
+      
+      return newArray;
+    }
+
+    //11k
+    const newTestArray = [-2, 3, 9, 0, -3];
+    console.log(countPositive(newTestArray));
+
+    function countPositive(nums) {
+      let count = 0;
+      for (let i = 0; i < nums.length; i++) {
+        if (nums[i] > 0) {
+          count++;
+        }
+      }
+      return count;
+    }
+    </script>
+</body>
+</html>

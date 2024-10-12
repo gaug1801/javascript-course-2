@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>12q</title>
+</head>
+<body>
+  <button class="start-button">Start</button>
+  <p>
+    <button class="add-to-cart-button">Add to Cart</button>
+    <p class="display-status"></p>
+  </p>
+
+  <button class="add-message">Add</button>
+  <button class="remove-message">Remove</button>
+  
+  <script>
+    /*
+      12q: Go back to the earlier exercises in lesson 12 (12c-12i) and instead of using onclick=""...", switch the code to use .addEventListener('click', ...)
+    */
+
+    //12c-d
+    //THIS VERSION DOES NOT ALLOW HOISTING
+    const buttonElem = document.querySelector('button');
+    const startButton = () => {
+      buttonElem.innerHTML = 'Loading...';
+      setTimeout(() => {
+        buttonElem.innerHTML = 'Finished!';
+      }, 1000);
+    }
+
+    buttonElem.addEventListener('click', () => {
+       startButton();
+    });
+
+    //12e 
+    let timeoutId;
+    const addToCart = () => {
+      document.querySelector('.display-status').innerHTML = 'Added';
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+      timeoutId = setTimeout(() => {
+        document.querySelector('.display-status').innerHTML = '';
+      }, 2000);
+    };
+
+    document.querySelector('.add-to-cart-button')
+      .addEventListener('click', ()=> {
+        addToCart();
+      })
+
+
+
+    //12i - 12h
+    //  THIS VERSION DOES NOT ALLOW HOISTING. 
+    const titleChange = () => {
+      setInterval(()=> {
+        if (titleElem.innerHTML === 'App') {
+          if (messages <= 0) {
+            return;
+          } 
+          titleElem.innerHTML = `(${messages}) New messages`;
+        } else {
+          titleElem.innerHTML = 'App';
+        }
+      }, 1000);
+    };
+
+    let messages = 2;
+    const titleElem = document.querySelector('title');
+    const title = titleElem.innerHTML;
+    titleChange();
+
+    document.querySelector('.add-message').addEventListener('click', ()=> addMessage());
+    document.querySelector('.remove-message').addEventListener('click', ()=> removeMessage());
+
+    function addMessage() {
+      messages++;
+    }
+
+    function removeMessage() {
+      if (messages <= 0) {
+        return;
+      } else {
+        messages--;
+      }
+    }
+
+  </script>
+</body>
+</html>

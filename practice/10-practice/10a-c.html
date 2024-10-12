@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10a-c</title>
+
+  <style>
+    .cart-button {
+      background-color: rgb(255, 216, 20);
+      color: black;
+      padding: 5px 25px;
+      font: 20px;
+      font-weight: 500;
+      border: none;
+      border-radius: 15px;
+    }
+    .request-button {
+      background-color: black;
+      color: white;
+      padding: 10px 15px;
+      font-size: 11px;
+      font-weight: bold;
+      border-radius: 5px;
+      border: none;
+      margin-right: 15px;
+    }
+    .schedule-button {
+      background-color: rgb(230, 230, 230);
+      border: none;
+      font-weight: bold;
+      padding: 10px 15px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <button class="cart-button">Add to Cart</button>
+  <p>
+    <button class="request-button">Request Now</button>
+    <button class="schedule-button">Schedule for later</button>
+  </p>
+  <button class="js-button cart-button">Test</button>
+</body>
+<script>
+  console.log(document.querySelector('.js-button').classList.contains('cart-button'));
+</script>
+</html>

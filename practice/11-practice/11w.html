@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>11w</title>
+</head>
+<body>
+  <script>
+    /*
+      11q - Practice to remember that break is not used in
+      functions. You use return instead. The fail statement
+      has to go outside of the if block but inside the
+      for loop.
+    */
+    const wordArray = ['green', 'red', 'blue', 'red'];
+    findIndex(wordArray, 'blue');
+
+    function findIndex(array, word) {
+      for (let i = 0; i < array.length; i++) {
+        if (array[i] === word) {
+          return i;
+        }  
+      }
+      return -1;
+    }
+
+    /*
+      Problem to solve:
+      - Return an array that has no repeating values.
+      How to Solve: 
+      - Create result array 
+      - Determine if it's in the result array already
+        - My idea is to take one value from the original array
+        and compare it to what's in the unique array.
+        -If it's in there, continue and don't add
+        - otherwise, add it to the unique array
+      New Idea:
+      - Add it unless its in there already 
+        - if my findIndex function returns the index an index, I just need to check if findIndex returns -1 to know if I add it or not
+
+      What was I doing wrong?
+      - You had the if-else statement 
+      right but you didn't need a nested loop at all.
+      - you had the actions inverted (you had the
+      if statement set up so it would continue when
+      there was a value that was NOT in the array lol)
+
+    */
+
+    anotherArray = ['green', 'red', 'red', 'green'];
+
+    function unique(array) {
+      const uniqueArray = [];
+
+      for (let i = 0; i < array.length; i++) {
+          if (findIndex(uniqueArray, array[i]) < 0 ) {
+            uniqueArray.push(array[i]);
+        } else {
+          continue;
+        }
+      }
+      return uniqueArray;
+    }
+
+    console.log(unique(wordArray));
+    console.log(unique(anotherArray));
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>9h</title>
+  </head>
+  <body>
+    <input onkeyup="updateText();" placeholder="Type something">
+    <p></p>
+    <script>
+    function updateText() {
+      document.querySelector('p').innerHTML = document.querySelector('input').value;
+    }
+    </script>
+  </body>
+</html>

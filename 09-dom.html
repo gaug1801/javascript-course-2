@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DOM</title>
+  </head>
+  <body>
+    <button>Hello</button>
+    <button class="js-button">Second button</button>
+
+    <script>
+      /*
+        The document object represnts/models the webpage. Thus, it is the Document Object Model (DOM). The DOM combines JavaScript and HTML, giving JS control of the webpage.
+
+         - qdocument.querySelector -- lets us get any element from the page and put it in JS. It grabs the first button element from the page
+         - every HTML elementhas a property .innerHTML for manipulation of anythingn inside the element. 
+         - A class attribute we can get any specific element from the page. The dot is called 'class selector'
+        - Since HTML elements are objects in JS, we can initalize them as a variable of type object.
+
+      */
+
+      console.log(document.querySelector('button').innerHTML); 
+
+      document.querySelector('button')
+        .innerHTML = 'Changed'; //Common syntax to clarify what is bein modified
+
+      const buttonElement = document.querySelector('.js-button');
+
+      console.log(buttonElement);
+
+      // console.log(document.title);
+      // document.title = 'changed';
+
+      // console.log(document.body); //HTMl element is turned into a JS object
+      // console.log(typeof document.body); //HTMl element is turned into a JS object
+      
+      // console.log(document.body.innerHTML); //controls all HTML within the body
+      // document.body.innerHTML = '<button>Good Job</button>';
+
+      // document.body.innerHTML = 'hello';
+      // document.title = 'Good Job';
+    </script>
+  </body>
+</html>

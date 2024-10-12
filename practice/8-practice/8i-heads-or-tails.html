@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heads or Tails</title>
+</head>
+<body>
+
+  <button onclick="playGame('heads');">Heads</button>
+  <button onclick="playGame('tails');">Tails</button>
+
+  <script>
+    /*  localStorage Recap 
+      To use localStorage right, you need to call the setItem() function.
+      When you call it, the first parameter is the name of the item being created.
+      The second parameter is the value to be stored in the item.
+      However, the value passed must be a string IF IT IS AN OBJECT.
+      To do so, you have to use JSON.stringify(). Ex: localStorage.setItem('score', JSON.stringify(score));
+
+      To get that item, you have to use the getItem() function, with one parameter which is the name of the item that was set.
+      The value returned is a string, so in this case where we are passing it straight into a variable, you must use JSON.parse() to turn that string back into an object.
+    */
+   
+    // localStorage.removeItem('score'); //test to see if the getItem() function works
+    let score = JSON.parse(localStorage.getItem('score')) || 
+    {
+      wins: 0,
+      losses: 0,
+    };
+
+    function playGame(guess) {
+      let rand = Math.random();
+      console.log(rand);
+      let result = '';
+
+      if (rand < 0.5) {
+        result = 'heads';
+        // result === guess ? console.log('You win!') : console.log('You lose!');
+        if (result === guess) {
+          console.log('You win!');
+          score.wins++;
+        }
+        else {
+          console.log('You lose!')
+          score.losses++;
+        }
+        localStorage.setItem('score', JSON.stringify(score));
+        console.log(score);
+      }
+      else {
+        result = 'tails';
+        // result === guess ? console.log('You win!') : console.log('You lose!');
+        if (result === guess) {
+          console.log('You win!');
+          score.wins++;
+        } else {
+          console.log('You lose!');
+          score.losses++;
+        }
+        localStorage.setItem('score', JSON.stringify(score));
+        console.log(score);
+      }
+
+      // console.log(score);
+    }
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DOM Projects</title>
+    <style>
+      body {
+        font-family: Arial;
+      }
+      .subscribe-button {
+        border: none;
+        background-color: black;
+        color: white;
+        padding: 8px 12px 8px 12px;
+        border-radius: 15px;
+        font-size: 10px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-bottom: 30px;
+      }
+      
+      .is-subscribed {
+        background-color: rgb(240, 240, 240);
+        color: black;
+      }
+      .cost-input {
+        font-size: 15px;
+        padding: 10px;
+      }
+      .calculate-button {
+        background-color: green;
+        border: none;
+        color: white;
+        padding: 12px 15px;
+        font-size: 15px;
+        cursor: pointer;
+      }
+      .error-font { 
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <p>YouTube Subscribe Button</p>
+    <button onclick="subscribe();" class='js-subscribe-button subscribe-button'>
+    Subscribe</button>
+
+    <p>Amazon Shipping Calculator</p>
+    <input class="js-cost-input cost-input" placeholder="Cost of order" type="text" onkeydown="handleCostKeydown(event);">
+    <button class="calculate-button" onclick="calculateTotal();">Calculate</button>
+    <p class="js-total-cost"></p>
+
+    <script>
+      function handleCostKeydown(event) {
+        if (event.key === '-' ) {
+          document.querySelector('.js-total-cost').classList.add('error-font');
+          document.querySelector('.js-total-cost').innerHTML = 'Error: cost cannot be less than $0';
+        }
+        else if (event.key === 'Enter') {
+          calculateTotal();
+        }
+      }
+
+      function calculateTotal() {
+        const inputElem = document.querySelector('.js-cost-input');
+        let cost = Number(inputElem.value); 
+        
+        if (document.querySelector('.js-total-cost').classList.contains('error-font')) {
+          document.querySelector('.js-total-cost').classList.remove('error-font');
+        }
+
+        if (cost > 0) {
+          if (cost < 40) {
+          cost += 10;
+        }
+        document.querySelector('.js-total-cost').innerHTML = `$${cost}`;
+        } 
+      }
+
+      function subscribe() {
+        const buttonElem = document.querySelector('.js-subscribe-button');
+
+        if (buttonElem.innerText === 'Subscribe') {
+          buttonElem.innerHTML = 'Subscribed';
+          buttonElem.classList.add('is-subscribed'); // You don't need the dot notation
+        } else {
+          buttonElem.innerHTML = 'Subscribe';
+          buttonElem.classList.remove('is-subscribed');
+        }
+       }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //a
+    const myArray = [10, 20, 30];
+    myArray[2] = 99;
+    console.log(myArray);
+
+    //b
+    console.log(getLastValue(myArray));
+
+    //c
+    arraySwap(myArray);
+    console.log(myArray);
+
+    function getLastValue(array) {
+      return array[array.length - 1];
+    }
+
+    function arraySwap(array) {
+      let temp = array[0];
+
+      array[0] = array[array.length - 1];
+      array[array.length - 1] = temp;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>11n</title>
+</head>
+<body>
+  <script>
+    /*
+      The problem:
+        - Create a function that takes an array of strings
+        - Return an object with how many times it appeared
+      How to approach the problem:
+        - Create object
+        - Loop through the array
+          - If this is the first time it appears:
+            - Create property
+            - Name the property the same as the string in the array
+            - Increase that count by one
+          - Otherwise:
+            - Increase the count by one on the matching object property
+
+      Things to Note:
+        - You can create a new object property using object[propertyName],
+          Just make sure to initialize it.
+     */
+
+    wordsArray = ['apple', 'grape', 'apple', 'apple'];
+
+    console.log(countWords(wordsArray));
+    
+    function countWords(words) {
+      let count = 0;
+      const wordCount = {};
+      for (let i = 0; i < words.length; i++) {
+        if (!wordCount[words[i]]) {
+          wordCount[words[i]] = 1;
+        } else {
+          wordCount[words[i]]++;
+        }
+      }
+      return wordCount;
+    }
+  </script>
+</body>
+</html>

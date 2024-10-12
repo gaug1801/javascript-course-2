@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    /*
+      FizzBuzz Problem
+      Problem to Solve:
+        If the number is divisible by 3, display 'Fizz' instead
+        of the number. If it's divisible by 5, display 'Buzz' instead. If it's divisible by 3 and 5, display 'FizzBuzz' instead.
+
+        Steps to Solve the problem:
+        - Maybe i want to start with checking if i can print 'FizzBuzz' first, since it's the special condition 
+        - Check all other options.
+
+    */
+    for (let i = 1; i <= 20; i++) {
+      if ((i % 3 === 0) && (i % 5 === 0)) {
+        console.log('FizzBuzz')
+        continue;
+      } else if (i % 3 === 0) {
+        console.log('Fizz');
+        continue;
+      } else if (i % 5 === 0) {
+        console.log('Buzz');
+        continue;
+      } else { 
+        console.log(i);
+      }
+    }
+  </script>
+</body>
+</html>

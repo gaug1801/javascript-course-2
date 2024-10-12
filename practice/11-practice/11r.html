@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>11r</title>
+</head>
+<body>
+  <script>
+
+    // /*
+    //   11r - The lesson is to use continue to skip
+    //   adding things you don't want to add to your
+    //   array.
+    // */
+
+    // const foods = ['egg', 'apple', 'egg', 'egg', 'ham'];
+
+    // const removedEgg = removeEgg(foods);
+    // console.log(removedEgg);
+
+    // function removeEgg(foods) {
+    //   const newArray = [];
+
+    //   for (let i = 0; i < foods.length; i++) {
+    //     if (foods[i] === 'egg') {
+    //       continue;
+    //     }
+    //     newArray.push(foods[i]);
+    //   }
+    //   return newArray;
+    // }
+
+    // /*
+    //   11s - practice with count and conditional statements
+    //   Remember: when you declare a count, it must be at a global scope
+    //   If you place it in a for loop or if statement it is local
+    // */
+    const secondFoods = ['apple', 'egg', 'egg', 'ham', 'egg', 'bananas'];
+    const removedTwoEgg = removeTwoEgg(secondFoods);
+    console.log(removedTwoEgg);
+
+    function removeTwoEgg(foods) {
+      const newArray = [];
+      let eggCount = 0;
+
+      for (let i = 0; i < foods.length; i++) {
+        
+        if (foods[i] === 'egg' && eggCount < 2) {
+          eggCount++;
+          continue;
+        }
+        newArray.push(foods[i]);
+      }
+      return newArray;
+    }
+
+
+    /*
+      11t - The lesson was to use .reverse to to reverse the 
+      array, and then reverse it again once the work is done.
+      Nothing else changed.
+
+      11u. Sometimes you overthink it a little bit. You don't have
+      to edit as much code, just give it a good look.
+      You did well by turning around and redoing
+    */
+
+    const thirdFoods = ['egg', 'apple', 'egg', 'egg', 'ham'];
+    const newFoodsArray = removeLastTwoEggs(thirdFoods);
+    console.log(newFoodsArray);
+    console.log(thirdFoods);
+    
+    function removeLastTwoEggs(foods) {
+      const foodsCopy = foods.slice();
+      foodsCopy.reverse();
+
+      const newArray = []; 
+      console.log(newArray);
+      let eggCount = 0;
+
+      for (let i = 0; i < foods.length; i++) {
+        if (foods[i] === 'egg' && eggCount < 2) {
+          eggCount++;
+          continue;
+        }
+        newArray.push(foods[i]);
+      }
+
+      foods.reverse();
+      newArray.reverse();
+      return newArray;
+    }
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DOM Projects</title>
+  </head>
+  <body>
+    <p>YouTube Subscribe Button</p>
+    <button onclick="subscribe();" class='js-subscribe-button'>
+    Subscribe</button>
+
+    <p>Amazon Shipping Calculator</p>
+    <input class="js-cost-input" placeholder="Cost of order" type="text" onkeydown="handleCostKeydown(event);">
+    <button onclick="calculateTotal();">Calculate</button>
+    <p class="js-total-cost"></p>
+
+    <script>
+      /*
+        RECAP:
+        - .innerHTML pulls everythin inside the element, including white space
+        - .innerText will pull JUST the text
+        - use a function to keep the HTML looking cleaner.
+        - onclick ="" and onkeydown="" are an event listeners
+        - to test an event listener, use console.log(event)
+        - console.log(event) will print event information on the console
+        - event.key will return the key that was just heard/clicked
+        - The enter key is read in as 'Enter'
+        - use the function Number() to convert a string to an integer/float
+        - vice versa with String().
+          - Strings are turned into numbers when math is done via type coercion. Not recommended.
+          - dont do math with strings.
+        - window is a built in object represents the entirety of the browser.
+          - Everything including the document object, the console, and alert.
+       */
+
+        String(25);
+        console.log('25' - 5);
+        console.log('25' + 5);
+
+        window.document;
+        window.console.log('window');
+
+       function handleCostKeydown(event) {
+        if (event.key === 'Enter') {
+          calculateTotal();
+        }
+       }
+
+       function calculateTotal() {
+        const inputElem = document.querySelector('.js-cost-input');
+
+        let cost = Number(inputElem.value); //Since the input tag has no innerHTML value, we just use .value for the value.
+
+        if (cost < 40) {
+          cost += 10;
+        }
+
+        document.querySelector('.js-total-cost').innerHTML = `$${cost}`;
+
+       }
+
+       function subscribe() {
+        const buttonElem = document.querySelector('.js-subscribe-button');
+
+        if (buttonElem.innerText === 'Subscribed') {
+          buttonElem.innerHTML = 'Subscribe';
+        } else {
+          buttonElem.innerHTML = 'Subscribed';
+        }
+       }
+    </script>
+  </body>
+</html>

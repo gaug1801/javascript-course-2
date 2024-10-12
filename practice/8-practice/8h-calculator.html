@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>
+    <button onclick="updateCalculation(1);">1</button>
+    <button onclick="updateCalculation(2);">2</button>
+    <button onclick="updateCalculation(3);">3</button>
+  </p>
+  <p>
+    <button onclick="updateCalculation(4);">4</button>
+    <button onclick="updateCalculation(5);">5</button>
+    <button onclick="updateCalculation(6);">6</button> 
+  </p>
+  <p>
+    <button onclick="updateCalculation(7);">7</button>
+    <button onclick="updateCalculation(8);">8</button>
+    <button onclick="updateCalculation(9);">9</button>
+  </p>
+  <button onclick="updateCalculation(' + ');">+</button>
+  <button onclick="
+    calculation = eval(calculation);
+    console.log(calculation);
+  
+  ">=</button>
+  <button onclick="
+    calculation = '';
+    localStorage.removeItem('update');
+  ">C</button>
+
+  <script>
+    //4:57:44
+    let calculation = localStorage.getItem('update');
+    if (!calculation) {
+      calculation = '';
+    }
+
+    // I got stuck here because I was udpating the calculation value twice in this function: once in the return statement, and once again when setting the localStorage item. I fixed it by updating calculation FIRST and then using it in the next two statements.
+    
+    function updateCalculation(update) {
+      calculation += update;
+      localStorage.setItem('update', calculation);
+      return calculation;
+    }
+    
+  </script>
+</body>
+</html>

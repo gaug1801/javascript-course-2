@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Functions</title>
+  </head>
+  <body>
+    <script>
+      // function function1() { // This only creates a function, but does not use it.
+      //   console.log('Hello');
+      //   console.log(2 + 2);
+      // }
+
+      // function1(); // Calling the funcions
+      // function1();
+
+      function calculateTax(cost, taxPercent = 0.1) {
+        console.log(cost * taxPercent);
+      }
+
+      calculateTax(2000, 0.2); 
+      calculateTax(5000); //if you don't type both parameters in, it will pass the missing Parameter as NaN
+    </script>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App</title>
+</head>
+<body>
+
+  <button class="add-message" onclick="addMessage();">Add</button>
+  <button class="remove-message" onclick="removeMessage();">Remove</button>
+  <script>
+    /*
+      Problem: Change the webpage title every 1 second
+      - The interval will change it every second
+      - Use an if-else statement to check what it currently is
+        - Then switch it over and over
+      Lesson: You forgot to use the right amount of equals to compare!
+        You were accidentally using just one in the if statement,
+        causing the condition to not compare both sides but rather
+        ASSIGN the string to titleElem.innerHTML
+    */
+
+    let messages = 2;
+    const titleElem = document.querySelector('title');
+    const title = titleElem.innerHTML;
+    titleChange();
+
+
+    function titleChange(){
+      setInterval(function() {
+        if(titleElem.innerHTML === 'App') {
+          if (messages <= 0) { 
+            return;
+          } else {
+            titleElem.innerHTML = `(${messages}) New messages`;
+          }
+        }
+        else {
+          titleElem.innerHTML = 'App';
+        }
+      }, 1000);
+    }
+
+    /*
+      12h - use the messages variable to determine what title to display.
+      12i
+        - Don't let 'messages' go below 0.
+        - If messages === 0 stop changing the title and display 'App' as the title
+        - When messages > 0 start changing the title again.
+    */
+    function addMessage() {
+      messages++;
+    }
+
+    function removeMessage() {
+      if (messages <= 0) {
+        return;
+      } else {
+        messages--;
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>12a</title>
+</head>
+<body>
+  <button onclick="startButton();">Start</button>
+  <p>
+    <button onclick="addToCart();" class="add-to-cart-button">Add to Cart</button>
+    <p class="display-status"></p>
+  </p>
+  
+  <script>
+    //12a - create a function variable.
+    const a = function() {
+      console.log(2 + 3);
+    };
+    a();
+
+    //12b - write a function that makes another function run twice
+    function runTwice(fun) {
+      for(let i = 0; i < 2; i++) {
+        fun();
+      }
+    }
+
+    runTwice(function(){
+      console.log('12b');
+    });
+
+    runTwice(function () {
+      console.log(5);
+    });
+
+    //12c-d: on click, wait 2 seconds to change the text to 'Finished!'. Add 'Loading...' text in between.
+    const buttonElem = document.querySelector('button');
+    function startButton(){
+      buttonElem.innerHTML = 'Loading...'
+      setTimeout(function() {
+        buttonElem.innerHTML = 'Finished!';
+      }, 1000);
+    }
+
+    //12e - refreseh the add to cart timer on every click of the button
+    let timeoutId;
+    function addToCart() {
+      document.querySelector('.display-status').innerHTML = 'Added';
+      if (timeoutId){
+        clearTimeout(timeoutId);
+      }
+      timeoutId = setTimeout(function(){
+        document.querySelector('.display-status').innerHTML = '';
+      }, 2000);
+    }
+
+  </script>
+</body>
+</html>

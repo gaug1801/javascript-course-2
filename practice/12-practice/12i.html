@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>12i</title>
+</head>
+<body>
+  <script>
+    //12i - create an arrow function called multiple that takes two numbers, multiplies them, and returns the result. 12k - write it in one line.
+    const multiply = (num1, num2) => num1 * num2;
+    console.log(multiply(2, 3));
+    console.log(multiply(7, 10));
+
+    //12l - create a function countPositive(nums) that takes an array of numbers and returns how many numbers in the array are greater than 0. Create this function using .forEach() instead of a loop.
+
+    const countPositive = (array) => {
+      let count = 0;
+      array.forEach((value, index) => {
+        if (value > 0) {
+          count++;
+        }
+      });
+      return count;
+    };
+
+    console.log(countPositive([1, -3, 5]));
+    console.log(countPositive([-2, 3, -5, 7, 10]));
+    
+    //12m + bonus - create a function addNum(array, num) that takes an array of numbers and resturns an array where each number is increaed by 'num'. create a functin using .map instead of a loop. Bonus: use the one-line shortcut in your solution
+    // Don't forget that callback functions will take as parameter the things being passed by the function above it. Meaning, (value, index) is preceded by the parenetheses of .forEeach(), as seen below 
+    //Since [array].map() returns a new array, we return the results of [array].map
+    const addNumClassic = (array,num) => {
+      return array.map((value, index) => {
+        return value + num;
+      });
+    };
+    
+    console.log(addNumClassic([1, 2, 3], 2));
+    console.log(addNumClassic([-2,-1, 0, 99], 2));
+
+    const addNum = (array, num) => array.map(value => value + num);
+
+    console.log(addNum([1, 2, 3], 2));
+    console.log(addNum([-2,-1, 0, 99], 2));
+
+    //12n - Create a function removeEgg(foods) that takes an array of strings and returns an array where the string 'egg' is removed. Create this function using .filter() instead of a loop.
+    foods = ['egg', 'apple', 'egg', 'egg', 'ham'];
+
+    const removeEggClassic = (foods) => {
+        return foods.filter((value, index) => {
+          return value !== 'egg';
+      });
+    };
+
+    console.log(removeEggClassic(foods));
+
+    const removeEgg = (foods) => { return foods.filter(value => value !== 'egg')};
+
+    console.log(removeEgg(foods));
+
+    const removeFirstTwoEggs = (foods) => {
+      let count = 0;
+      return foods.filter((value, index) => {
+        if ((count < 2) && (value === 'egg')) {
+          count++;
+          return false;
+        }
+          return true;
+      });
+    };
+
+    console.log(removeFirstTwoEggs(foods));
+  </script>
+</body>
+</html>

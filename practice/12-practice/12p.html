@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>12p</title>
+</head>
+<body>
+  <button onclick="startButton();">Start</button>
+  <p>
+    <button onclick="addToCart();" class="add-to-cart-button">Add to Cart</button>
+    <p class="display-status"></p>
+  </p>
+
+  <button class="add-message" onclick="addMessage();">Add</button>
+  <button class="remove-message" onclick="removeMessage();">Remove</button>
+  
+  <script>
+    /*
+      12p: Go back to earlier exercies in lesson 12 (12c - 12i) and switch the code to use arrow functions. (When passing a function into another function, use arrow functions. Otherwise, you can use either syntax.)
+    */
+
+    //12c-d
+    const buttonElem = document.querySelector('button');
+    // function startButton(){
+    //   buttonElem.innerHTML = 'Loading...';
+    //   setTimeout(function() {
+    //     buttonElem.innerHTML = 'Finished!';
+    //   }, 1000);
+    // }
+
+    const startButton = () => {
+      buttonElem.innerHTML = 'Loading...';
+      setTimeout(() => {
+        buttonElem.innerHTML = 'Finished!';
+      }, 1000);
+    }
+
+    //12e 
+    let timeoutId;
+    // function addToCart() {
+    //   document.querySelector('.display-status').innerHTML = 'Added';
+    //   if (timeoutId){
+    //     clearTimeout(timeoutId);
+    //   }
+    //   timeoutId = setTimeout(function(){
+    //     document.querySelector('.display-status').innerHTML = '';
+    //   }, 2000);
+    // }
+
+    const addToCart = () => {
+      document.querySelector('.display-status').innerHTML = 'Added';
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+      timeoutId = setTimeout(() => {
+        document.querySelector('.display-status').innerHTML = '';
+      }, 2000);
+    };
+
+
+
+    //12i - 12h
+    // function titleChange(){
+    //   setInterval(function() {
+    //     if(titleElem.innerHTML === 'App') {
+    //       if (messages <= 0) { 
+    //         return;
+    //       }
+    //       titleElem.innerHTML = `(${messages}) New messages`;
+    //     }
+    //     else {
+    //       titleElem.innerHTML = 'App';
+    //     }
+    //   }, 1000);
+    // }
+
+    //  THIS VERSION DOES NOT ALLOW HOISTING. 
+    const titleChange = () => {
+      setInterval(()=> {
+        if (titleElem.innerHTML === 'App') {
+          if (messages <= 0) {
+            return;
+          } 
+          titleElem.innerHTML = `(${messages}) New messages`;
+        } else {
+          titleElem.innerHTML = 'App';
+        }
+      }, 1000);
+    };
+
+    let messages = 2;
+    const titleElem = document.querySelector('title');
+    const title = titleElem.innerHTML;
+    titleChange();
+
+
+    function addMessage() {
+      messages++;
+    }
+
+    function removeMessage() {
+      if (messages <= 0) {
+        return;
+      } else {
+        messages--;
+      }
+    }
+
+  </script>
+</body>
+</html>
